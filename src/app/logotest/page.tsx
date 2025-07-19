@@ -111,25 +111,29 @@ export default function Home() {
       </div>
 
       {/* Event Details */}
-      <div className="bg-white rounded-2xl p-6 mx-4 max-w-lg mb-8 shadow-2xl border-4 border-[#E60026]">
-        <h2 className="text-center text-2xl md:text-3xl font-bold text-[#E60026] mb-6">
-          Bar Mitzvah de Billy
-        </h2>
+      <div className="p-6 mx-4 max-w-lg mb-8 z-1">
+        <img src="../sectionlogo.png" alt="Billy" className="w-80 md:w-96 mb-8 mx-auto drop-shadow-2xl" />
         <div className="space-y-4">
-          <div className="bg-[#E60026]/5 rounded-xl p-4 border-l-4 border-[#E60026]">
+          <div className="transform rotate-[1.5deg] hover:rotate-[0deg] transition-all duration-300 bg-[#fbf7ea] rounded-full p-4 border-4 border-[#f9b64a]">
             <div className="flex items-center gap-3">
-              <div className="bg-[#E60026] rounded-full p-2">
-              <svg fill="#ffffff" className="w-5 h-5 text-white" viewBox="0 0 50 50" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" overflow="inherit"><path d="M25 1l7.082 12.106 13.918.003-6.958 11.89 6.958 11.894-13.916.002-7.084 12.105-7.083-12.105-13.917-.002 6.958-11.894-6.958-11.89 13.918-.003 7.082-12.106zm-9.078 24.01l4.489 7.99h9.165l4.501-7.99-4.5-8.01h-9.151l-4.504 8.01zm18.617 7.99h4.041l-2.019-3.453-2.022 3.453zm-23.122 0h4.042l-2.022-3.454-2.02 3.454zm11.574-20h4.042l-2.021-3.452-2.021 3.452zm13.57 7.451l2.019-3.451h-4.041l2.022 3.451zm-23.124.002l2.021-3.453h-4.042l2.021 3.453zm11.575 19.997l2.021-3.45h-4.043l2.022 3.45z"/></svg>
-              </div>
+
+
+            <div className="bottle-cap-icon w-12 h-12">
+          <div className="bottle-cap-inner-icon w-12 h-12">
+          <svg fill="#ffffff" className="w-5 h-5 text-white" viewBox="0 0 50 50" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" overflow="inherit"><path d="M25 1l7.082 12.106 13.918.003-6.958 11.89 6.958 11.894-13.916.002-7.084 12.105-7.083-12.105-13.917-.002 6.958-11.894-6.958-11.89 13.918-.003 7.082-12.106zm-9.078 24.01l4.489 7.99h9.165l4.501-7.99-4.5-8.01h-9.151l-4.504 8.01zm18.617 7.99h4.041l-2.019-3.453-2.022 3.453zm-23.122 0h4.042l-2.022-3.454-2.02 3.454zm11.574-20h4.042l-2.021-3.452-2.021 3.452zm13.57 7.451l2.019-3.451h-4.041l2.022 3.451zm-23.124.002l2.021-3.453h-4.042l2.021 3.453zm11.575 19.997l2.021-3.45h-4.043l2.022 3.45z"/></svg>    
+          </div>
+        </div>
+
               <div>
-                <div className="font-bold text-[#E60026] text-lg">Jeudi 1er janvier</div>
-                <div className="text-gray-600">Mise des téfilines</div>
+                <div className="tracking-tight font-bold text-[#E60026] text-xl">Jeudi 1er janvier</div>
+                <div className="text-[#E60026] text-lg tracking-tight">Mise des téfilines</div>
               </div>
             </div>
           </div>
-          <div className="bg-[#E60026]/5 rounded-xl p-4 border-l-4 border-[#E60026]">
+          <div className="transform -rotate-[1deg] hover:rotate-[0deg] transition-all duration-300 bg-[#fbf7ea] rounded-full p-4 border-4 border-[#f9b64a]">
             <div className="flex items-center gap-3">
-              <div className="bg-[#E60026] rounded-full p-2">
+            <div className="bottle-cap-icon w-12 h-12">
+            <div className="bottle-cap-inner-icon w-12 h-12">
               <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Party">
@@ -167,9 +171,10 @@ export default function Home() {
     </g>
 </svg>
               </div>
+            </div>
               <div>
-                <div className="font-bold text-[#E60026] text-lg">Dimanche 4 janvier</div>
-                <div className="text-gray-600">La célébration</div>
+                <div className="tracking-tight font-bold text-[#E60026] text-xl">Dimanche 4 janvier</div>
+                <div className="text-[#E60026] text-lg tracking-tight">La célébration</div>
               </div>
             </div>
           </div>
@@ -243,10 +248,36 @@ export default function Home() {
             height: 85px;
           }
         }
+
+
+        .bottle-cap-icon {
+          background-image: url('../bottlecap.svg');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          // filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+        }
+        
+        .bottle-cap-inner-icon {
+          position: relative;
+          z-index: 2;
+          text-align: center;
+          border-radius: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+
       `}</style>
 
       {/* RSVP Section */}
-      <div className="bg-white rounded-2xl p-8 w-full max-w-lg mb-10 shadow-2xl border-4 border-[#E60026] z-1">
+      <div className="bg-white rounded-4xl p-8 w-full max-w-lg mb-10 shadow-2xl border-4 border-[#E60026] z-1">
         {rsvpStatus === 'pending' ? (
           <>
             <h2 className="text-center text-2xl font-bold text-[#E60026] mb-6">

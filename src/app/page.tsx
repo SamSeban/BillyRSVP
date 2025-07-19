@@ -111,7 +111,7 @@ export default function Home() {
       </div>
 
       {/* Event Details */}
-      <div className="bg-white rounded-2xl p-6 mx-4 max-w-lg mb-8 shadow-2xl border-4 border-[#E60026]">
+      <div className="bg-white rounded-2xl p-6 mx-4 max-w-lg mb-8 shadow-2xl border-4 border-[#E60026] z-1">
         <h2 className="text-center text-2xl md:text-3xl font-bold text-[#E60026] mb-6">
           Bar Mitzvah de Billy
         </h2>
