@@ -1,0 +1,176 @@
+.bubbles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -150px;
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(255, 255, 255, 0.8) 0%, 
+    rgba(255, 255, 255, 0.4) 30%, 
+    rgba(135, 206, 250, 0.3) 60%,
+    rgba(100, 149, 237, 0.2) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(135, 206, 250, 0.3);
+  backdrop-filter: blur(1px);
+  
+  /* Use CSS custom properties for randomization */
+  left: var(--random-x);
+  animation: rise var(--random-duration) var(--random-delay) infinite linear;
+  
+  /* Reduced base size */
+  width: calc(var(--random-size) * 16px);
+  height: calc(var(--random-size) * 16px);
+  
+}
+
+/* Create varying bubble sizes for more realism - reduced max sizes */
+.bubble:nth-child(3n) {
+  width: calc(var(--random-size) * 12px);
+  height: calc(var(--random-size) * 12px);
+}
+
+.bubble:nth-child(4n) {
+  width: calc(var(--random-size) * 18px);
+  height: calc(var(--random-size) * 18px);
+}
+
+.bubble:nth-child(5n) {
+  width: calc(var(--random-size) * 10px);
+  height: calc(var(--random-size) * 10px);
+}
+
+.bubble:nth-child(7n) {
+  width: calc(var(--random-size) * 20px);
+  height: calc(var(--random-size) * 20px);
+}
+
+.bubble:nth-child(6n) {
+  width: calc(var(--random-size) * 22px);
+  height: calc(var(--random-size) * 22px);
+}
+
+/* Main rising animation with smooth fading */
+@keyframes rise {
+  0% {
+    bottom: -150px;
+    opacity: 0;
+    transform: scale(0.3) translateX(0px);
+  }
+  
+  5% {
+    opacity: 0.8;
+    transform: scale(0.7) translateX(0px);
+  }
+  
+  10% {
+    opacity: 0.7;
+    transform: scale(1) translateX(0px);
+  }
+  
+  25% {
+    opacity: 0.3;
+    transform: scale(1) translateX(8px);
+  }
+  
+  50% {
+    opacity: 0.2;
+    transform: scale(1) translateX(-4px);
+  }
+  
+  75% {
+    transform: scale(1) translateX(6px);
+    opacity: 0.2;
+  }
+  
+  85% {
+    opacity: 0.1;
+    transform: scale(0.9) translateX(2px);
+  }
+  
+  95% {
+    opacity: 0;
+    transform: scale(0.6) translateX(0px);
+  }
+  
+  100% {
+    bottom: calc(100vh + 150px);
+    opacity: 0;
+    transform: scale(0.2) translateX(0px);
+  }
+}
+
+/* Different bubble styles for variety */
+.bubble:nth-child(even) {
+  background: radial-gradient(circle at 40% 20%, 
+    rgba(255, 255, 255, 0.9) 0%, 
+    rgba(255, 255, 255, 0.5) 25%, 
+    rgba(173, 216, 230, 0.4) 50%,
+    rgba(135, 206, 250, 0.2) 100%);
+}
+
+.bubble:nth-child(6n) {
+  background: radial-gradient(circle at 25% 25%, 
+    rgba(255, 255, 255, 0.7) 0%, 
+    rgba(255, 255, 255, 0.3) 30%, 
+    rgba(176, 224, 230, 0.4) 60%,
+    rgba(135, 206, 250, 0.1) 100%);
+  box-shadow: 
+    inset 0 0 30px rgba(255, 255, 255, 0.4),
+    0 0 30px rgba(135, 206, 250, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bubble {
+    width: calc(var(--random-size) * 12px);
+    height: calc(var(--random-size) * 12px);
+  }
+  
+  .bubble:nth-child(3n) {
+    width: calc(var(--random-size) * 10px);
+    height: calc(var(--random-size) * 10px);
+  }
+  
+  .bubble:nth-child(4n) {
+    width: calc(var(--random-size) * 14px);
+    height: calc(var(--random-size) * 14px);
+  }
+  
+  .bubble:nth-child(6n) {
+    width: calc(var(--random-size) * 16px);
+    height: calc(var(--random-size) * 16px);
+  }
+  
+  .bubble:nth-child(7n) {
+    width: calc(var(--random-size) * 16px);
+    height: calc(var(--random-size) * 16px);
+  }
+}
+
+/* Optional: Subtle pulsing effect for some bubbles */
+.bubble:nth-child(8n) {
+  animation: 
+    rise var(--random-duration) var(--random-delay) infinite linear,
+    pulse var(--random-duration) var(--random-delay) infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  
+  50% {
+    transform: scale(1.03);
+  }
+} 
