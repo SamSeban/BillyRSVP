@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Lottie from 'lottie-react'
-import BillyBackground from '../components/BillyBackground'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
