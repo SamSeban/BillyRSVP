@@ -1,11 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
 
-export default function BillyBackground() {
+interface BillyBackgroundProps {
+  showTileBackground?: boolean;
+}
+
+export default function BillyBackground({ showTileBackground = true }: BillyBackgroundProps) {
   const [elementsPerRow, setElementsPerRow] = useState(12); // Default fallback
   const containerRef = useRef<HTMLDivElement>(null);
   const measureRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    // Skip calculations if showing tile background
+    if (showTileBackground) return;
+
     const calculateElementsPerRow = () => {
       if (containerRef.current && measureRef.current) {
         const containerWidth = containerRef.current.offsetWidth;
@@ -28,7 +35,22 @@ export default function BillyBackground() {
     return () => {
       window.removeEventListener('resize', calculateElementsPerRow);
     };
-  }, []);
+  }, [showTileBackground]);
+
+  // If showing tile background, render the tiled image
+  if (showTileBackground) {
+    return (
+      <div 
+        className="fixed inset-0 z-0"
+        style={{
+          backgroundImage: 'url(./tile.png)',
+          backgroundSize: '160px 65px',
+          opacity: 0.1,
+          backgroundRepeat: 'repeat',
+        }}
+      />
+    );
+  }
   
   // Create an array of "Billy" text elements to fill the background
   const billyElements = Array.from({ length: 700 }, (_, index) => {
@@ -42,23 +64,24 @@ export default function BillyBackground() {
         key={index}
         className="text-red-100 select-none pointer-events-none opacity-10 text-5xl leading-[0.8]"
         style={{ 
-          fontFamily: "'Coca Cola ii', sans-serif",
+          fontFamily: "'Roboto', sans-serif",
+          fontWeight: 'bolder',
           marginLeft: isOffsetRow ? '3rem' : '0',
         }}
       >
-        Billy
+        BAR MITSVAH DE BILLY MOÏSE
       </span>
     )
   })
 
   return (
-    <div className="fixed inset-0 overflow-hidden -z-10" ref={containerRef}>
+    <div className="fixed inset-0 overflow-hidden z-0" ref={containerRef}>
       {/* Hidden measurement element */}
       <span
         ref={measureRef}
         className="text-red-100 opacity-0 absolute text-5xl leading-[0.8] pointer-events-none"
         style={{ 
-          fontFamily: "'Coca Cola ii', sans-serif",
+          fontFamily: "'Montserrat', sans-serif",
           visibility: 'hidden'
         }}
       >
