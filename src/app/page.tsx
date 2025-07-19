@@ -104,7 +104,7 @@ export default function Home() {
       {/* Billy Logo */}
       <div className="mt-10 mb-8 text-center">
         <img 
-          src="./logobilly.svg" 
+          src="./logo2.png" 
           alt="Billy" 
           className="w-80 md:w-96 mx-auto drop-shadow-2xl"
         />
