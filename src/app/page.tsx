@@ -346,7 +346,7 @@ export default function Home() {
                   {comment && (
                     <div>
                       <span className="font-medium">Commentaire :</span>
-                      <p className="italic mt-1">"{comment}"</p>
+                      <p className="italic mt-1">{comment}</p>
                     </div>
                   )}
                 </div>
