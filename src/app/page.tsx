@@ -18,7 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     // Load the Lottie animation data
-    fetch('/cocacola.json')
+    fetch('./cocacola.json')
       .then(response => response.json())
       .then(data => {
         setAnimationData(data)
@@ -90,7 +90,7 @@ export default function Home() {
       {/* Billy Logo */}
       <div className="mt-10 mb-8 text-center">
         <img 
-          src="/logobilly.svg" 
+          src="./logobilly.svg" 
           alt="Billy" 
           className="w-80 md:w-96 mx-auto drop-shadow-2xl"
         />
@@ -134,7 +134,7 @@ export default function Home() {
         .bottle-cap {
           width: 100px;
           height: 100px;
-          background-image: url('/bottlecap.svg');
+          background-image: url('./bottlecap.svg');
           background-size: contain;
           background-repeat: no-repeat;
           background-position: center;
