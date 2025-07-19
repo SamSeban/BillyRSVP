@@ -6,7 +6,7 @@ interface BubblesProps {
   className?: string;
 }
 
-const Bubbles: React.FC<BubblesProps> = ({ count = 50, className = '' }) => {
+const Bubbles: React.FC<BubblesProps> = ({ count = 25, className = '' }) => {
   const bubbles = useMemo(() => {
     return Array.from({ length: count }, (_, index) => (
       <div
