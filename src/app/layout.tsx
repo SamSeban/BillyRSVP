@@ -16,7 +16,7 @@ export default function RootLayout({
       <head>
         <link href="https://fonts.cdnfonts.com/css/coca-cola-ii" rel="stylesheet" />
       </head>
-      <body className="min-h-screen min-h-dvh bg-gradient-to-b from-red-500 to-red-700">
+      <body className="min-h-screen min-h-dvh">
         {children}
       </body>
     </html>

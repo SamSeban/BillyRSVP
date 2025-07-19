@@ -18,7 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     // Load the Lottie animation data
-    fetch('./cocacola.json')
+    fetch('../cocacola.json')
       .then(response => response.json())
       .then(data => {
         setAnimationData(data)
@@ -83,14 +83,14 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen min-h-dvh flex flex-col items-center justify-center px-4 text-white bg-gradient-to-b from-red-500 to-red-700">
+    <div className="min-h-screen min-h-dvh flex flex-col items-center justify-center px-4 text-white">
       {/* Billy Background Pattern */}
       {/* <BillyBackground /> */}
       
       {/* Billy Logo */}
       <div className="mt-10 mb-8 text-center">
         <img 
-          src="./logobilly.svg" 
+          src="../logobillyred.svg" 
           alt="Billy" 
           className="w-80 md:w-96 mx-auto drop-shadow-2xl"
         />
@@ -134,7 +134,7 @@ export default function Home() {
         .bottle-cap {
           width: 100px;
           height: 100px;
-          background-image: url('./bottlecap.svg');
+          background-image: url('../bottlecap.svg');
           background-size: contain;
           background-repeat: no-repeat;
           background-position: center;
