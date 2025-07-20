@@ -102,19 +102,60 @@ export default function Home() {
       <BillyBackground />
       
       {/* Billy Logo */}
-      <div className="mt-10 mb-8 text-center">
+      <div className="absolute top-3 right-3">
+        <span className="text-white font-bold text-lg">בס"ד</span>
+      </div>
+
+      <div className="mt-25 mb-20 text-center">
         <img 
-          src="./logo2.png" 
+          src="./logo3.png" 
           alt="Billy" 
           className="w-80 md:w-96 mx-auto drop-shadow-2xl"
         />
       </div>
 
       {/* Event Details */}
-      <div className="p-6 mx-4 max-w-lg mb-8 z-1">
+      <div className="p-6 mx-4 max-w-lg mb-8 z-1 bg-[#fbf7ea] rounded-4xl border-4 border-[#f9b64a]">
         <img src="./sectionlogo.png" alt="Billy" className="w-80 md:w-96 mb-8 mx-auto drop-shadow-2xl" />
-        <div className="space-y-4">
-          <div className="transform rotate-[1.5deg] hover:rotate-[0deg] transition-all duration-300 bg-[#fbf7ea] rounded-full p-4 border-4 border-[#f9b64a]">
+        <div className="space-y-4 text-[#E60026]">
+          <div className="text-center space-y-2">
+            <p className="text-lg leading-relaxed">
+              C'est avec une immense joie et beaucoup d'émotion<br />
+              que nous vous annonçons la<br />
+              <span className="font-bold text-xl">Bar Mitzvah de notre cher Billy Moïse</span>
+            </p>
+            
+            <div className="mt-6 space-y-4">
+              <div className="bg-white/50 rounded-2xl p-4 border-2 border-[#f9b64a]">
+                <p className="font-semibold text-lg">📿 Mise des Téfilines</p>
+                <p>Jeudi 1er janvier 2026</p>
+                <p className="text-sm italic">(plus d'infos à venir)</p>
+              </div>
+              
+              <div className="bg-white/50 rounded-2xl p-4 border-2 border-[#f9b64a]">
+                <p className="font-semibold text-lg">🎉 La célébration</p>
+                <p>Dimanche 4 janvier 2026</p>
+              </div>
+            </div>
+            
+            <div className="mt-6 space-y-2">
+              <p>Votre présence est une évidence pour nous,<br />
+                et nous serions honorés de partager ce moment unique à vos côtés.</p>
+              
+              <p className="text-lg font-medium">✨ Plus de détails & dress code à venir ✨</p>
+              
+              <div className="mt-4">
+                <p className="italic">Avec tout notre amour,</p>
+                <p className="font-bold">The fabulous & fresh family</p>
+                <p className="text-lg">Seban · Ayache · Benisti</p>
+              </div>
+            </div>
+          </div>
+
+
+
+          
+          {/* <div className="transform rotate-[1.5deg] hover:rotate-[0deg] transition-all duration-300 bg-[#fbf7ea] rounded-full p-4 border-4 border-[#f9b64a]">
             <div className="flex items-center gap-3">
 
 
@@ -177,34 +218,34 @@ export default function Home() {
                 <div className="text-[#E60026] text-lg tracking-tight">La célébration</div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
       {/* Countdown Timer */}
-      <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 mb-16 justify-items-center">
+      <div className="transform rotate-[1.5deg] hover:rotate-[0deg] transition-all duration-300 bg-[#fbf7ea] rounded-4xl border-4 border-[#f9b64a] z-1 p-4 grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 mb-16 justify-items-center">
         <div className="bottle-cap">
           <div className="bottle-cap-inner">
-            <div className="text-2xl md:text-3xl font-bold text-white">{timeLeft.days}</div>
-            <div className="text-xs md:text-sm text-white font-medium">Jours</div>
+            <div className="text-2xl md:text-3xl font-extrabold text-white">{timeLeft.days}</div>
+            <div className="text-sm text-white font-bold">Jours</div>
           </div>
         </div>
         <div className="bottle-cap">
           <div className="bottle-cap-inner">
-            <div className="text-2xl md:text-3xl font-bold text-white">{timeLeft.hours}</div>    
-            <div className="text-xs md:text-sm text-white font-medium">Heures</div>
+            <div className="text-2xl md:text-3xl font-extrabold text-white">{timeLeft.hours}</div>    
+            <div className="text-sm text-white font-bold">Heures</div>
           </div>
         </div>
         <div className="bottle-cap">
           <div className="bottle-cap-inner">
-            <div className="text-2xl md:text-3xl font-bold text-white">{timeLeft.minutes}</div>
-            <div className="text-xs md:text-sm text-white font-medium">Minutes</div>
+            <div className="text-2xl md:text-3xl font-extrabold text-white">{timeLeft.minutes}</div>
+            <div className="text-sm text-white font-bold">Minutes</div>
           </div>
         </div>
         {/* <div className="bottle-cap">
           <div className="bottle-cap-inner">
             <div className="text-2xl md:text-3xl font-bold text-white">{timeLeft.seconds}</div>
-            <div className="text-xs md:text-sm text-white font-medium">Secondes</div>
+            <div className="text-sm text-white font-medium">Secondes</div>
           </div>
         </div> */}
       </div>
