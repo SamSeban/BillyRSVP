@@ -103,7 +103,7 @@ export default function Home() {
       
       {/* Billy Logo */}
       <div className="absolute top-3 right-3">
-        <span className="text-white font-bold text-lg">בס"ד</span>
+        <span className="text-white font-bold text-lg">בס&quot;ד</span>
       </div>
 
       <div className="mt-25 mb-20 text-center">
@@ -120,7 +120,7 @@ export default function Home() {
         <div className="space-y-4 text-[#E60026]">
           <div className="text-center space-y-2">
             <p className="text-lg leading-relaxed">
-              C'est avec une immense joie et beaucoup d'émotion<br />
+              C&apos;est avec une immense joie et beaucoup d&apos;émotion<br />
               que nous vous annonçons la<br />
               <span className="font-bold text-xl">Bar Mitzvah de notre cher Billy Moïse</span>
             </p>
@@ -129,7 +129,7 @@ export default function Home() {
               <div className="bg-white/50 rounded-2xl p-4 border-2 border-[#f9b64a]">
                 <p className="font-semibold text-lg">📿 Mise des Téfilines</p>
                 <p>Jeudi 1er janvier 2026</p>
-                <p className="text-sm italic">(plus d'infos à venir)</p>
+                <p className="text-sm italic">(plus d&apos;infos à venir)</p>
               </div>
               
               <div className="bg-white/50 rounded-2xl p-4 border-2 border-[#f9b64a]">
