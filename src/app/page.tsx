@@ -189,67 +189,67 @@ export default function Home() {
       </div>
 
       {/* Event Details */}
-      <div className="p-6 mx-4 max-w-lg mb-8 z-1 bg-[#fbf7ea] rounded-4xl border-4 border-[#f9b64a]">
-        <img src="./sectionlogo.png" alt="Billy" className="w-80 md:w-96 mb-8 mx-auto drop-shadow-2xl" />
-        <div className="space-y-4 text-[#E60026]">
-          <div className="text-center space-y-2">
-            <p className="text-lg leading-relaxed">
-              C&apos;est avec une immense joie et beaucoup d&apos;émotion<br />
-              que nous vous annonçons la<br />
-              <span className="font-bold text-xl">Bar Mitzvah de notre cher Billy Moïse</span>
-            </p>
+      <div className="mx-4 max-w-lg mb-8 z-1 bg-black p-1" style={{clipPath: 'polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px)'}}>        <div className="p-6 bg-[#fbf7ea] h-full" style={{clipPath: 'polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px)'}}>
+          <img src="./sectionlogo.png" alt="Billy" className="w-80 md:w-96 mb-8 mx-auto drop-shadow-2xl" />
+          <div className="space-y-4 text-[#E60026]">
+            <div className="text-center space-y-2">
+              <p className="text-lg leading-relaxed">
+                C&apos;est avec une immense joie et beaucoup d&apos;émotion<br />
+                que nous vous annonçons la<br />
+                <span className="font-bold text-xl">Bar Mitzvah de notre cher Billy Moïse</span>
+              </p>
+              
+              <div className="mt-6 space-y-4">
+                <div className="bg-white/50 rounded-2xl p-4 border-2 border-[#f9b64a]">
+                  <p className="font-semibold text-lg">📿 Mise des Téfilines</p>
+                  <p>Jeudi 1er janvier 2026</p>
+                  <p className="text-sm italic">(plus d&apos;infos à venir)</p>
+                </div>
+                
+                <div className="bg-white/50 rounded-2xl p-4 border-2 border-[#f9b64a]">
+                  <p className="font-semibold text-lg">🎉 La célébration</p>
+                  <p>Dimanche 4 janvier 2026</p>
+                </div>
+              </div>
+              
+              <div className="mt-6 space-y-2">
+                <p>Votre présence est une évidence pour nous,<br />
+                  et nous serions honorés de partager ce moment unique à vos côtés.</p>
+                
+                <p className="text-lg font-medium">✨ Plus de détails & dress code à venir ✨</p>
+                
+                <div className="mt-4">
+                  <p className="italic">Avec tout notre amour,</p>
+                  <p className="font-bold">The fabulous & fresh family</p>
+                  <p className="text-lg">Seban · Ayache · Benisti</p>
+                </div>
+              </div>
+            </div>
+
+
+
             
-            <div className="mt-6 space-y-4">
-              <div className="bg-white/50 rounded-2xl p-4 border-2 border-[#f9b64a]">
-                <p className="font-semibold text-lg">📿 Mise des Téfilines</p>
-                <p>Jeudi 1er janvier 2026</p>
-                <p className="text-sm italic">(plus d&apos;infos à venir)</p>
-              </div>
-              
-              <div className="bg-white/50 rounded-2xl p-4 border-2 border-[#f9b64a]">
-                <p className="font-semibold text-lg">🎉 La célébration</p>
-                <p>Dimanche 4 janvier 2026</p>
-              </div>
-            </div>
-            
-            <div className="mt-6 space-y-2">
-              <p>Votre présence est une évidence pour nous,<br />
-                et nous serions honorés de partager ce moment unique à vos côtés.</p>
-              
-              <p className="text-lg font-medium">✨ Plus de détails & dress code à venir ✨</p>
-              
-              <div className="mt-4">
-                <p className="italic">Avec tout notre amour,</p>
-                <p className="font-bold">The fabulous & fresh family</p>
-                <p className="text-lg">Seban · Ayache · Benisti</p>
-              </div>
-            </div>
-          </div>
+            {/* <div className="transform rotate-[1.5deg] hover:rotate-[0deg] transition-all duration-300 bg-[#fbf7ea] rounded-full p-4 border-4 border-[#f9b64a]">
+              <div className="flex items-center gap-3">
 
 
-
-          
-          {/* <div className="transform rotate-[1.5deg] hover:rotate-[0deg] transition-all duration-300 bg-[#fbf7ea] rounded-full p-4 border-4 border-[#f9b64a]">
-            <div className="flex items-center gap-3">
-
-
-            <div className="bottle-cap-icon w-12 h-12">
-          <div className="bottle-cap-inner-icon w-12 h-12">
-          <svg fill="#ffffff" className="w-5 h-5 text-white" viewBox="0 0 50 50" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" overflow="inherit"><path d="M25 1l7.082 12.106 13.918.003-6.958 11.89 6.958 11.894-13.916.002-7.084 12.105-7.083-12.105-13.917-.002 6.958-11.894-6.958-11.89 13.918-.003 7.082-12.106zm-9.078 24.01l4.489 7.99h9.165l4.501-7.99-4.5-8.01h-9.151l-4.504 8.01zm18.617 7.99h4.041l-2.019-3.453-2.022 3.453zm-23.122 0h4.042l-2.022-3.454-2.02 3.454zm11.574-20h4.042l-2.021-3.452-2.021 3.452zm13.57 7.451l2.019-3.451h-4.041l2.022 3.451zm-23.124.002l2.021-3.453h-4.042l2.021 3.453zm11.575 19.997l2.021-3.45h-4.043l2.022 3.45z"/></svg>    
-          </div>
-        </div>
-
-              <div>
-                <div className="tracking-tight font-bold text-[#E60026] text-xl">Jeudi 1er janvier</div>
-                <div className="text-[#E60026] text-lg tracking-tight">Mise des téfilines</div>
-              </div>
-            </div>
-          </div>
-          <div className="transform -rotate-[1deg] hover:rotate-[0deg] transition-all duration-300 bg-[#fbf7ea] rounded-full p-4 border-4 border-[#f9b64a]">
-            <div className="flex items-center gap-3">
-            <div className="bottle-cap-icon w-12 h-12">
+              <div className="bottle-cap-icon w-12 h-12">
             <div className="bottle-cap-inner-icon w-12 h-12">
-              <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+            <svg fill="#ffffff" className="w-5 h-5 text-white" viewBox="0 0 50 50" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" overflow="inherit"><path d="M25 1l7.082 12.106 13.918.003-6.958 11.89 6.958 11.894-13.916.002-7.084 12.105-7.083-12.105-13.917-.002 6.958-11.894-6.958-11.89 13.918-.003 7.082-12.106zm-9.078 24.01l4.489 7.99h9.165l4.501-7.99-4.5-8.01h-9.151l-4.504 8.01zm18.617 7.99h4.041l-2.019-3.453-2.022 3.453zm-23.122 0h4.042l-2.022-3.454-2.02 3.454zm11.574-20h4.042l-2.021-3.452-2.021 3.452zm13.57 7.451l2.019-3.451h-4.041l2.022 3.451zm-23.124.002l2.021-3.453h-4.042l2.021 3.453zm11.575 19.997l2.021-3.45h-4.043l2.022 3.45z"/></svg>    
+            </div>
+          </div>
+
+                <div>
+                  <div className="tracking-tight font-bold text-[#E60026] text-xl">Jeudi 1er janvier</div>
+                  <div className="text-[#E60026] text-lg tracking-tight">Mise des téfilines</div>
+                </div>
+              </div>
+            </div>
+            <div className="transform -rotate-[1deg] hover:rotate-[0deg] transition-all duration-300 bg-[#fbf7ea] rounded-full p-4 border-4 border-[#f9b64a]">
+              <div className="flex items-center gap-3">
+              <div className="bottle-cap-icon w-12 h-12">
+              <div className="bottle-cap-inner-icon w-12 h-12">
+                <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Party">
             <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24">
@@ -293,6 +293,7 @@ export default function Home() {
               </div>
             </div>
           </div> */}
+        </div>
         </div>
       </div>
 
