@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import Bubbles from '../components/Bubbles';
 
 interface BillyBackgroundProps {
   showTileBackground?: boolean;
@@ -40,6 +41,9 @@ export default function BillyBackground({ showTileBackground = true }: BillyBack
   // If showing tile background, render the tiled image
   if (showTileBackground) {
     return (
+      <>
+      <div className="fixed inset-0 z-0 bg-gradient-to-b from-red-500 to-red-700" />
+      <Bubbles className="fixed inset-0 z-0" />
       <div 
         className="fixed inset-0 z-0"
         style={{
@@ -49,6 +53,7 @@ export default function BillyBackground({ showTileBackground = true }: BillyBack
           backgroundRepeat: 'repeat',
         }}
       />
+      </>
     );
   }
   
