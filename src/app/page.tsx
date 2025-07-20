@@ -14,12 +14,14 @@ export default function Home() {
     seconds: 0
   })
 
-  const [rsvpStatus, setRsvpStatus] = useState<'pending' | 'yes' | 'no'>('pending')
+  const [rsvpStatus, setRsvpStatus] = useState<'pending' | 'Oui' | 'Non'>('pending')
   const [guestName, setGuestName] = useState('')
   const [numberOfPeople, setNumberOfPeople] = useState(1)
   const [willComeToParty, setWillComeToParty] = useState(false)
   const [willComeToSynagogue, setWillComeToSynagogue] = useState(false)
   const [comment, setComment] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   useEffect(() => {
     // Load the Lottie animation data
@@ -64,11 +66,82 @@ export default function Home() {
     return () => clearInterval(interval)
   }, [])
 
-  const handleRSVP = (response: 'yes' | 'no') => {
-    if (guestName.trim()) {
-      setRsvpStatus(response)
+  const handleRSVP = async (response: 'Oui' | 'Non') => {
+    if (!guestName.trim()) return;
+    
+    setIsSubmitting(true);
+    setSubmitError('');
+    
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhW-w4FcC6I1az6AKVFwPiJJgQWv0LCLxoxhol7uP_h_ugpLwnWQF6Hi21HH659Lhk/exec';
+    
+    try {
+      console.log('Submitting RSVP with data:', {
+        name: guestName.trim(),
+        numberOfPeople,
+        response,
+        willComeToSynagogue,
+        willComeToParty,
+        comment: comment.trim()
+      });
+      
+      // Use FormData for better compatibility with Google Apps Script
+      const formBody = new URLSearchParams();
+      formBody.append('name', guestName.trim());
+      formBody.append('numberOfPeople', numberOfPeople.toString());
+      formBody.append('response', response);
+      formBody.append('willComeToSynagogue', willComeToSynagogue.toString());
+      formBody.append('willComeToParty', willComeToParty.toString());
+      formBody.append('comment', comment.trim());
+      
+      console.log('Form data being sent:', formBody.toString());
+      
+      const scriptResponse = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formBody
+      });
+      
+      console.log('Response status:', scriptResponse.status);
+      console.log('Response ok:', scriptResponse.ok);
+      
+      if (scriptResponse.ok) {
+        try {
+          const result = await scriptResponse.text();
+          console.log('Response text:', result);
+          
+          // Try to parse as JSON, but don't fail if it's not JSON
+          try {
+            const jsonResult = JSON.parse(result);
+            console.log('Parsed JSON:', jsonResult);
+            
+            if (jsonResult.status === 'error') {
+              throw new Error(jsonResult.message);
+            }
+          } catch (parseError) {
+            console.log('Response is not JSON, assuming success', parseError);
+          }
+          
+          setRsvpStatus(response);
+          console.log('RSVP submitted successfully!');
+        } catch (textError) {
+          console.error('Error reading response:', textError);
+          // Even if we can't read the response, the request might have succeeded
+          setRsvpStatus(response);
+        }
+      } else {
+        throw new Error(`HTTP Error: ${scriptResponse.status}`);
+      }
+      
+    } catch (error) {
+      console.error('Detailed error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Une erreur inconnue est survenue';
+      setSubmitError(`Erreur de soumission: ${errorMessage}. Veuillez réessayer.`);
+    } finally {
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const resetForm = () => {
     setRsvpStatus('pending')
@@ -77,6 +150,7 @@ export default function Home() {
     setWillComeToParty(false)
     setWillComeToSynagogue(false)
     setComment('')
+    setSubmitError('')
   }
 
   // Loading screen with Lottie animation
@@ -428,20 +502,31 @@ export default function Home() {
             {/* Action Buttons */}
             <div className="flex gap-4">
               <button
-                onClick={() => handleRSVP('no')}
-                disabled={!guestName.trim()}
+                onClick={() => handleRSVP('Non')}
+                disabled={!guestName.trim() || isSubmitting}
                 className="flex-1 cursor-pointer bg-white hover:bg-gray-100 disabled:bg-gray-200 disabled:cursor-not-allowed text-[#E60026] border-2 border-[#E60026] font-bold py-4 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
-                Ne peut pas venir
+                {isSubmitting ? 'Envoi...' : 'Ne peut pas venir'}
               </button>
               <button
-                onClick={() => handleRSVP('yes')}
-                disabled={!guestName.trim() || (!willComeToParty && !willComeToSynagogue)}
+                onClick={() => handleRSVP('Oui')}
+                disabled={!guestName.trim() || (!willComeToParty && !willComeToSynagogue) || isSubmitting}
                 className="flex-1 cursor-pointer bg-[#E60026] hover:bg-[#B8001F] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg text-nowrap"
               >
-                Confirmer
+                {isSubmitting ? 'Envoi...' : 'Confirmer'}
               </button>
             </div>
+            {submitError && (
+              <div className="mt-4 text-center text-red-500 text-sm">
+                <p className="mb-2">{submitError}</p>
+                <button 
+                  onClick={() => setSubmitError('')}
+                  className="text-[#E60026] underline hover:no-underline"
+                >
+                  Réessayer
+                </button>
+              </div>
+            )}
           </>
         ) : (
           <div className="text-center">
@@ -454,7 +539,7 @@ export default function Home() {
               Merci, {guestName} !
             </h3>
             
-            {rsvpStatus === 'yes' ? (
+            {rsvpStatus === 'Oui' ? (
               <div className="text-left bg-gray-50 rounded-xl p-4 mb-6">
                 <h4 className="font-semibold text-[#E60026] mb-3">Détails de votre RSVP :</h4>
                 <div className="space-y-2 text-gray-700">
