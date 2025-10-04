@@ -199,18 +199,16 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen min-h-dvh text-white bg-[#f8e5c5]">
+    <div className="min-h-dvh text-white bg-[#f8e5c5]">
       {/* Video Intro: Poster with Play Button */}
       {videoPhase === "intro" && (
           <button
             aria-label="Play video"
             onClick={startPlayback}
-            className="group relative w-full h-screen overflow-hidden focus:outline-none focus:ring-4 focus:ring-[#E60026]"
+            className="group relative w-full h-dvh overflow-hidden focus:outline-none focus:ring-4 focus:ring-[#E60026]"
           >
             {/* Poster - you'll need to add a poster image */}
 
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-black/10" />
           {/* Custom Play Button */}
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-white/90 backdrop-blur-md shadow-xl ring-1 ring-black/10 transition group-hover:scale-105">
@@ -229,7 +227,7 @@ export default function Home() {
             ref={videoRef}
             src="./video.mp4"
             // poster="/.jpg"
-            className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none z-0"
+            className="absolute inset-0 w-full md:w-auto md:mx-auto h-full object-cover select-none pointer-events-none z-0"
             playsInline
             controls={false}
             preload="auto"
@@ -256,7 +254,7 @@ export default function Home() {
           {/* Skip button */}
           <button
             onClick={() => setVideoPhase("done")}
-            className="fixed bottom-8 right-8 z-50 pointer-events-auto bg-black/70 hover:bg-black/90 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg backdrop-blur-sm"
+            className="fixed cursor-pointer bottom-8 right-8 z-50 pointer-events-auto bg-black/70 hover:bg-black/90 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg backdrop-blur-sm"
           >
             Passer au RSVP
           </button>
@@ -270,13 +268,13 @@ export default function Home() {
 
       {/* RSVP Section - shown after video ends */}
       {videoPhase === "done" && (
-        <div className="min-h-screen min-h-dvh flex flex-col items-center justify-center px-4 py-8">
+        <div className="min-h-dvh flex flex-col items-center justify-center px-4 py-8">
           <div className="bg-[#f8e5c5] p-8 w-full max-w-2xl shadow-2xl text-black rounded-3xl">
         {rsvpStatus === 'pending' ? (
           <form onSubmit={handleRSVP}>
             {/* Logo */}
             <div className="text-center mb-6">
-              <div className="relative h-24 w-full mb-4">
+              <div className="relative h-35 md:h-50 w-full mb-4">
                 <Image src="logo.png" alt="Logo" fill className="object-contain" />
               </div>
             </div>

@@ -12,12 +12,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="h-[100%] m-0 p-0">
+    <html lang="en" className="m-0 p-0">
       <head>
         <link href="https://fonts.cdnfonts.com/css/coca-cola-ii" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </head>
-      <body className="min-h-screen min-h-dvh h-[100%] m-0 p-0">
+      <body className="m-0 p-0">
         {children}
       </body>
     </html>
