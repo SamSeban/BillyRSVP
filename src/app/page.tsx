@@ -116,7 +116,7 @@ export default function Home() {
     setIsSubmitting(true);
     setSubmitError('');
     
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhW-w4FcC6I1az6AKVFwPiJJgQWv0LCLxoxhol7uP_h_ugpLwnWQF6Hi21HH659Lhk/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCyTTCsifPMbK4fXxkwWpoKwQ6_CY6fyNQ0py93XYZPB9xlWhGtJWLRVFF7wFZtdVz/exec';
     
     try {
       console.log('Submitting RSVP with data:', {
@@ -208,14 +208,7 @@ export default function Home() {
             className="group relative w-full h-screen overflow-hidden focus:outline-none focus:ring-4 focus:ring-[#E60026]"
           >
             {/* Poster - you'll need to add a poster image */}
-            <Image
-              src="/poster.jpg"
-              alt="Video poster"
-              fill
-              className="object-cover"
-              draggable={false}
-              priority
-            />
+
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-black/10" />
           {/* Custom Play Button */}
@@ -231,12 +224,12 @@ export default function Home() {
 
       {/* Video Playing */}
       {videoPhase === "playing" && (
-        <div className="relative w-full h-screen overflow-hidden">
+        <div className="relative w-full h-[100dvh] overflow-hidden">
           <video
             ref={videoRef}
             src="./video.mp4"
             // poster="/.jpg"
-            className="h-full mx-auto object-cover select-none pointer-events-none"
+            className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none z-0"
             playsInline
             controls={false}
             preload="auto"
@@ -250,7 +243,7 @@ export default function Home() {
             ref={shieldRef}
             tabIndex={0}
             aria-hidden
-            className="absolute inset-0 outline-none"
+            className="absolute inset-0 outline-none pointer-events-none z-10"
             onKeyDown={(e) => {
               e.preventDefault();
               e.stopPropagation();
@@ -260,8 +253,15 @@ export default function Home() {
               e.stopPropagation();
             }}
           />
+          {/* Skip button */}
+          <button
+            onClick={() => setVideoPhase("done")}
+            className="fixed bottom-8 right-8 z-50 pointer-events-auto bg-black/70 hover:bg-black/90 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg backdrop-blur-sm"
+          >
+            Passer au RSVP
+          </button>
           {videoError && (
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-black/70 px-3 py-1 text-xs text-white">
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 rounded-full bg-black/70 px-3 py-1 text-xs text-white">
               {videoError}
             </div>
           )}
@@ -271,18 +271,18 @@ export default function Home() {
       {/* RSVP Section - shown after video ends */}
       {videoPhase === "done" && (
         <div className="min-h-screen min-h-dvh flex flex-col items-center justify-center px-4 py-8">
-          <div className="bg-[#f8e5c5] p-8 w-full max-w-2xl shadow-2xl text-black">
+          <div className="bg-[#f8e5c5] p-8 w-full max-w-2xl shadow-2xl text-black rounded-3xl">
         {rsvpStatus === 'pending' ? (
           <form onSubmit={handleRSVP}>
             {/* Logo */}
             <div className="text-center mb-6">
               <div className="relative h-24 w-full mb-4">
-                <Image src="/logo.png" alt="Logo" fill className="object-contain" />
+                <Image src="logo.png" alt="Logo" fill className="object-contain" />
               </div>
             </div>
 
             {/* Title */}
-            <h1 className="text-center text-3xl font-bold mb-6">BAR MITSVA BILLY MOÏSE</h1>
+            <h1 className="text-center text-3xl font-bold mb-6">BAR MITSVAH BILLY MOÏSE</h1>
 
             {/* Description */}
             <p className="text-center mb-6 leading-relaxed">
