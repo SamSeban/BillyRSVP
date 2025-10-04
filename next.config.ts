@@ -7,8 +7,8 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
   // Set the base path for GitHub Pages (repository name)
-  basePath: '/BillyRSVP',
-  assetPrefix: '/BillyRSVP/',
+  basePath: '',
+  assetPrefix: '',
 };
 
 export default nextConfig;
