@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Bar Mitzvah de Billy',
-  description: 'RSVP pour la Bar Mitzvah de Billy',
+  title: 'Bar Mitzva de Billy',
+  description: 'RSVP pour la Bar Mitzva de Billy',
 }
 
 export default function RootLayout({

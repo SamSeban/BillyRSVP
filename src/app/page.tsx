@@ -254,7 +254,7 @@ export default function Home() {
           {/* Skip button */}
           <button
             onClick={() => setVideoPhase("done")}
-            className="fixed cursor-pointer bottom-8 right-8 z-50 pointer-events-auto bg-black/70 hover:bg-black/90 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg backdrop-blur-sm"
+            className="fixed cursor-pointer bottom-8 right-8 z-50 pointer-events-auto bg-[#d2b584]/70 hover:bg-[#d2b584]/90 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg backdrop-blur-sm"
           >
             Passer au RSVP
           </button>
@@ -280,7 +280,7 @@ export default function Home() {
             </div>
 
             {/* Title */}
-            <h1 className="text-center text-3xl font-bold mb-6">BAR MITSVAH BILLY MOÏSE</h1>
+            <h1 className="text-center text-3xl font-bold mb-6">BAR MITSVA BILLY MOÏSE</h1>
 
             {/* Description */}
             <p className="text-center mb-6 leading-relaxed">
